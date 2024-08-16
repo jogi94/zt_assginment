@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block additionalCSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock additionalCSS %}
+
+{% block content %}
+
+<section><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span>
+    <div class="signin">
+
+        <div class="content">
+            <h2>Sign In</h2>
+            <form action="{% url 'accounts:login' %}" method="post">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                <h3 class="bg-warning text-white"> Your username and password didn't match! please try again. </h3>.
+                {% endif %}
+
+                <div class="form">
+                    <div class="inputBox">
+                        <label class="text-white" for="{{ form.username.id_for_label }}">Username</label>
+                        <input type="text" name="username" id="{{ form.username.id_for_label }}"
+                               value="{% if form.username %}{{ form.username.value }}{% endif %}" autocomplete="off" required>
+                        <label>{{ form.username.errors }}</label>
+                    </div>
+
+                    <div class="inputBox">
+                        <label class="text-white" for="{{ form.password.id_for_label }}">Password</label>
+                        <input type="password" name="password" id="{{ form.password.id_for_label }}" required> <i>Password</i>
+                    </div>
+
+                    <div class="links d-flex align-items-center">
+                        <h6 class="text-white mb-0">Don't Have an Account!</h6>
+                        <a class="btn text-white border border-white ms-2"
+                           href="{% url 'accounts:register' %}">Signup</a>
+                    </div>
+
+
+
+                    <div class="inputBox">
+                        <input type="submit" value="Login">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
