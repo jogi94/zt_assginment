@@ -41,6 +41,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'accounts',
+    'social',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS

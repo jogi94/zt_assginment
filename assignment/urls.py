@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', login_required(TemplateView.as_view(template_name='home.html')), name='home'),
     path('accounts/', include('accounts.urls')),
+    path('social/', include('social.urls')),
 ]
 
 if settings.DEBUG:
